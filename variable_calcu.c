@@ -2,13 +2,16 @@
 
 void basic();
 void logic();
+void position();
 
 void main ()
 {
 
 //  basic();
 
-    logic();
+//  logic();
+	position();
+
 }
 
 //基本运算符
@@ -43,16 +46,45 @@ void basic ()
     printf("i1-- : %d \n",i1);
 }
 
-
+//枚举类型声明示例
 enum BOOL {true = 1,false = 0};
+enum BOOL2 {true1='1',false1='0'};
 
 //逻辑运算符
 void logic ()
 {
     int i1,i2;
     enum BOOL b = true;
-    if (b == 1)
+	enum BOOL2 b2 = true1;
+    if (b || b == 1)
     {
-        printf("asd");
+        printf("b(int): %d \n",b);
     }
+
+	if (b && b2 == '1') 
+	{
+		printf("b2(char): %c \n", b2);
+	}
 }
+
+//位运算符(二进制形式运算) | & ^(异或,相同=1) ~(非,相反)
+void position()
+{
+	int i1, i2, i3;
+	i1 = 1;		   // 0000 0001
+	i2 = 2;		   // 0000 0010
+	printf("i1: %d, i2: %d \n", i1, i2);
+
+	i3 = i1 | i2;  // 0000 0011 = 3
+	printf("i1 | i2 = %d \n",i3);
+
+	i3 = i1 & i2; // 0000 0000 = 0
+	printf("i1 & i2 = %d \n", i3);
+
+	i3 = i1 ^ i2;// 0000 0011 = 3
+	printf("i1 ^ i2 = %d \n", i3);
+
+	i3 = ~i1;	// 0000 0010 = 2
+	printf("~i1 = %d \n", i3);
+}
+
