@@ -8,8 +8,8 @@ int main()
     return 0;
 }
 /*
-1 b(字节) = 8 bit(比特)
-1 Kb      = 1024 b
+1 byte(字节) = 8 bit(比特)
+1 Kb      = 1024 byte
 1 Mb      = 1024 Kb
 1 Gb      = 1024 Mb
 
