@@ -1,30 +1,40 @@
 #include <stdio.h>
-#define b 'b'
- char c();
-int main()
+
+
+void basic();//基本类型 = 整数类型 + 枚举类型
+void def();//变量定义
+void point();//指针
+
+void main()
 {
-    char a = c();
-    printf("const char:%c %c",a,b);
-    return 0;
+  // basic();
+  def();
+  // point();  
+  return ;
 }
+
 /*
+数据类型换算以及范围
 1 byte(字节) = 8 bit(比特)
 1 Kb      = 1024 byte
 1 Mb      = 1024 Kb
 1 Gb      = 1024 Mb
 
+C中,char型数据在内存中是以二进制形式存放的,char型可以进行加减运算的
+(系统先将char->int(按ASCII码表转换),然后计算)
+
 字符
- char : 1b, -128~127 | 0~255
- unsigned char : 1b, 0~255
- signed char : 1b, -128~127
+ char : 1byte(存储大小), -128~127 | 0~255
+ unsigned char : 1byte, 0~255
+ signed char : 1byte, -128~127
 
 整型
- int : 2|4 b, -32768~32767 | -2147483648~2147483647
- unsigned int: 2|4 b,	0 ~ 65535 | 0 ~ 4294967295
- short	2 b,	-32768 ~ 32767
- unsigned short	2 b,	0 ~ 65535
- long	4 b	-2147483648 ~ 2147483647
- unsigned long	4 b	 0 ~ 4294967295
+ int : 2|4 byte, -32768~32767 | -2147483648~2147483647
+ unsigned int: 2|4 byte, 0 ~ 65535 | 0 ~ 4294967295
+ short  2 byte,  -32768 ~ 32767
+ unsigned short 2 byte,  0 ~ 65535
+ long 4 byte -2147483648 ~ 2147483647
+ unsigned long  4 byte  0 ~ 4294967295
 
 常量(字面量)
  整数: 1~9 十 ,1~7 八 ,1~9 a~g 十六, U|u:unsigned, L|l:long
@@ -47,12 +57,32 @@ int main()
  %s   : 字符串输出
 定义常量的关键词:#define(main()函数前),const(函数内)
 */
-char c ()
+
+void basic()
 {
-  const char a = 'a';
-  enum BOOL a;
-  a = true;
-  return a;
+  //字符
+  char c1 = 'c';
+
+  // int i1 = -1;
+  // unsigned int i2 = 0;
 }
 
-enum BOOL {true=1,false=0};
+//变量定义
+#define c 'b'
+void def()
+{
+  printf("c:%c\n", c);
+
+  const char c1 = 'a';
+  printf("c1:%c\n", c1);
+
+  enum BOOL {true=1,false=0};
+  enum BOOL b1 = true;
+  printf("b1:%d\n", b1);
+}
+
+//指针
+void point ()
+{
+
+}

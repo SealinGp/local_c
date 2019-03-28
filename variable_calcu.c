@@ -1,17 +1,33 @@
 #include <stdio.h>
+#include <string.h>
 
 void basic();
 void logic();
 void position();
+typedef void(* fun_name)();
+void call_fun(fun_name fun);
+ 
+//命令行参数长度argc,数组argv(空格划分)
+void main (int argc, char* argv[])
+{    
+    if (NULL == argv[1] || argc <= 1)
+    {
+        printf("argument error \n");
+        return ;
+    }
+    // printf("%s\n", argv[1]);
+    
+    //定义函数指针
+    /*void (* fun_name)();
+    fun_name = basic;
+    fun_name();*/    
+    call_fun(basic);
+}
 
-void main ()
+void call_fun(fun_name fun) 
 {
-
-//  basic();
-
-//  logic();
-	position();
-
+  fun();
+  return;
 }
 
 //基本运算符
