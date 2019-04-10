@@ -8,8 +8,8 @@ void point();//指针
 void main()
 {
   // basic();
-  def();
-  // point();  
+  // def();
+  point();  
   return ;
 }
 
@@ -84,5 +84,18 @@ void def()
 //指针
 void point ()
 {
+   int *i1;
+   double *d1;
+   float *f1;
+   char *c1;
 
+   int i2 = 1;
+   i1     = &i2;
+   printf("i2 : %d\n", i2);   
+   printf("&i2: %p\n", &i2);
+
+   printf("i1 = &i2 \n");
+   printf("i1 : %p\n", i1);
+   printf("*i1: %d\n", *i1);
+   return ;
 }

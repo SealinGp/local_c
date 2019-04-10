@@ -5,29 +5,62 @@ void basic();
 void logic();
 void position();
 typedef void(* fun_name)();
-void call_fun(fun_name fun);
+void call_fun(char* fun);
  
 //命令行参数长度argc,数组argv(空格划分)
 void main (int argc, char* argv[])
 {    
     if (NULL == argv[1] || argc <= 1)
     {
-        printf("argument error \n");
+        printf("unknown argument function name \n");
         return ;
     }
-    // printf("%s\n", argv[1]);
+
+    char a[] = "basic,logic";
+    int len = strlen(a);
+    char s[128];
+    for (int i = 0; i < len; ++i)
+    {
+        if (a[i] != ',')
+        {
+            strcat(s,sprintf("%s",a[i]));
+        }
+        
+        if (a[i] == ',')
+        {
+            s = strcpy(s,"");
+        }
+        printf("%s\n", s);
+    }
+    
     
     //定义函数指针
     /*void (* fun_name)();
     fun_name = basic;
-    fun_name();*/    
-    call_fun(basic);
+    fun_name();*/   
+    
+    // call_fun(argv[1]);
 }
 
-void call_fun(fun_name fun) 
+//调用函数
+void call_fun(char* fun_name1) 
 {
-  fun();
-  return;
+   fun_name fun_name_point;
+   if(strcmp(fun_name1,"basic")==0)
+   {
+       fun_name_point = &basic;
+   }
+   if(strcmp(fun_name1,"logic")==0){
+       fun_name_point = &logic;
+   }
+
+   if(fun_name_point != NULL)
+   {
+       (*fun_name_point)();
+   } else {
+      printf("unknown argument function name \n");
+   }
+   return;
 }
 
 //基本运算符
