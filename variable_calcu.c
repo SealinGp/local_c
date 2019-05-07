@@ -15,22 +15,22 @@ void main (int argc, char* argv[])
         printf("unknown argument function name \n");
         return ;
     }
-
-    char a[] = "basic,logic";
+    char a1[] = "basic,logic";
+    char* a[] = &a1;
     int len = strlen(a);
     char s[128];
     for (int i = 0; i < len; ++i)
     {
-        if (a[i] != ',')
-        {
-            strcat(s,sprintf("%s",a[i]));
-        }
+        // if (a[i] != ',')
+        // {
+        //     strcat(s,a[i]);
+        // }
         
-        if (a[i] == ',')
-        {
-            s = strcpy(s,"");
-        }
-        printf("%s\n", s);
+        // if (a[i] == ',')
+        // {
+        //     s = strcpy(s,"");
+        // }
+         printf("%c\n", a[i]);
     }
     
     
